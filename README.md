@@ -17,5 +17,25 @@ El **Mail Service** es un microservicio dentro del sistema **CalendarUGR** encar
 - Usa **Thymeleaf** para plantillas de email
 - En el futuro, permitirá notificaciones de cambios de horario
 
-## 📦 Requisitos previos
-Para ejecutar este servicio, es necesario configurar las variables de entorno del "main"
+## Requisitos previos
+Para ejecutar este servicio, es necesario configurar las siguientes variables de entorno:
+
+- `MAIL_USERNAME`: Correo que usarás.
+- `MAIL_PASSWORD`: Contraseña de aplicación del servicio de mails que uses.
+
+## Instalación y ejecución
+1. Clonar el repositorio:
+   ```sh
+   git clone <repository-url>
+   cd mail-service
+
+2. Configurar variables de entorno 
+
+    ```sh
+    export MAIL_USERNAME=<your_mail_username>
+    export MAIL_PASSWORD=<your_mail_password>
+
+3. Construir y ejecutar el servicio
+
+    ```sh
+    ./mvnw spring-boot:run
