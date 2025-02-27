@@ -1,4 +1,4 @@
-package com.calendarugr.mail_service;
+package com.calendarugr.mail_service.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
-    public static final String MAIL_QUEUE = "mail_queue";
+    public static final String MAIL_QUEUE = "registering_queue";
     public static final String MAIL_EXCHANGE = "mail_exchange";
-    public static final String MAIL_ROUTING_KEY = "mail_routing_key";
+    public static final String MAIL_ROUTING_KEY = "registering_routing_key";
 
     @Bean
     Queue queue() {

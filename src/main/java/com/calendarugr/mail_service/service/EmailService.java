@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import com.calendarugr.mail_service.RabbitMQConfig;
+import com.calendarugr.mail_service.config.RabbitMQConfig;
 import com.calendarugr.mail_service.models.Email;
 
 import jakarta.mail.MessagingException;
