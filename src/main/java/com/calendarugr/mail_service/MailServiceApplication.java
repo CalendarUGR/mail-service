@@ -2,16 +2,13 @@ package com.calendarugr.mail_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class MailServiceApplication {
-
-	// First Time Docker Run RabbitMQ -> docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
-	// docker start rabbitmq
-	// docker stop rabbitmq
-	// http://localhost:15672/ -> guest:guest
 
 	public static void main(String[] args) {
 
