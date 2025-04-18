@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Notificación de creación de evento CalendarUGR</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            background-color: #ffffff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        h1 {
+            color: #333333;
+        }
+        p {
+            color: #666666;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #999999;
+            font-size: 12px;
+        }
+        .activation-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <h1>Notificación de evento</h1>
+        <p>Hola,</p>
+        <p>gracias por confiar en CalendarUGR, se ha creado un nuevo evento, y puede que estés interesado en él:</p>
+
+        <p><strong th:text="${title}"></strong> ( <strong th:text="${type}"></strong> )</p>
+        <p>Nombre del profesor: <strong th:text="${teacher}"></strong></p>
+        <p>Nombre de la facultad: <strong th:text="${facultyName}"></strong></p>
+        <p>Nombre del grado: <strong th:text="${gradeName}"></strong></p>
+        <p>Nombre de la asignatura: <strong th:text="${subjectName}"></strong></p>
+        <p>Nombre del grupo: <strong th:text="${groupName}"></strong></p>
+        <p>Nombre de la clase: <strong th:text="${gradeName}"></strong></p>
+        <p>Fecha: <strong th:text="${date}"></strong>, ( <strong th:text="${day}"></strong> )</p>
+        <p>Hora de inicio: <strong th:text="${initHour}"></strong></p>
+        <p>Hora de finalización: <strong th:text="${finishHour}"></strong></p>
+        <p>Aula: <strong th:text="${classroom}"></strong></p>
+
+        <br>
+
+        <p>CalendarUGR</p>
+        <div class="footer">
+            <p>Este es un correo electrónico generado automáticamente, por favor no responda.</p>
+        </div>
+    </div>
+</body>
+
+</html>

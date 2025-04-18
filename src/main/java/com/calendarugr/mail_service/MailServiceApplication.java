@@ -15,7 +15,7 @@ public class MailServiceApplication {
 		Dotenv dotenv = Dotenv.load();
 		System.setProperty("MAIL_USERNAME", dotenv.get("MAIL_USERNAME"));
 		System.setProperty("MAIL_PASSWORD", dotenv.get("MAIL_PASSWORD"));
-		
+		System.setProperty("API_KEY", dotenv.get("API_KEY"));
 		SpringApplication.run(MailServiceApplication.class, args);
 	}
 
