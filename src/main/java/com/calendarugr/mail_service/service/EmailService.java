@@ -27,6 +27,7 @@ public class EmailService {
     @Autowired 
     private TemplateEngine templateEngine;
 
+    @SuppressWarnings("unused")
     @Autowired
     private RabbitMQErrorHandler errorHandler;
 

@@ -16,6 +16,7 @@ public class MailServiceApplication {
 		System.setProperty("MAIL_USERNAME", dotenv.get("MAIL_USERNAME"));
 		System.setProperty("MAIL_PASSWORD", dotenv.get("MAIL_PASSWORD"));
 		System.setProperty("API_KEY", dotenv.get("API_KEY"));
+		System.setProperty("EUREKA_URL", dotenv.get("EUREKA_URL"));
 		SpringApplication.run(MailServiceApplication.class, args);
 	}
 
