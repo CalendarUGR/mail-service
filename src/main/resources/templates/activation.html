@@ -49,9 +49,9 @@
         <h1>Activación de Cuenta</h1>
         <p>Hola,</p>
         <p>Gracias por registrarte en CalendarUGR. Por favor, haz clic en el siguiente enlace para activar tu cuenta:</p>
-        <p><a th:href="@{http://localhost:8090/user/activate?token={token}(token=${token})}" class="activation-link">Activar Cuenta</a></p>
+        <p><a th:href="@{http://localhost:8090/calendarugr/v1/user/activate?token={token}(token=${token})}" class="activation-link">Activar Cuenta</a></p>
         <p>Si no puedes hacer clic en el enlace, copia y pega la siguiente URL en tu navegador:</p>
-        <p th:text="'http://localhost:8090/user/activate?token=' + ${token}"></p>
+        <p th:text="'http://localhost:8090/calendarugr/v1/user/activate?token=' + ${token}"></p>
         <p>¡Que tengas un buen día!,</p>
         <p>CalendarUGR</p>
         <div class="footer">
