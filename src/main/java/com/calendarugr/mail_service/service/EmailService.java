@@ -81,6 +81,12 @@ public class EmailService {
         
         System.out.println("📩 Recibido mensaje: " + msg);
         List<String> emails = (List<String>) msg.get("emails");
+
+        if (emails == null || emails.isEmpty()) {
+            System.out.println("No hay destinatarios para el correo.");
+            return;
+        }
+        
         String gradeName = (String) msg.get("gradeName");
         String subjectName = (String) msg.get("subjectName");
         String groupName = (String) msg.get("groupName");
