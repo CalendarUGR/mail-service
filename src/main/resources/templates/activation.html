@@ -91,13 +91,15 @@
 <body>
     <div class="email-container">
         <div class="logo-container">
-            <img src="/logo.png" alt="Logo" class="logo" />
+            <img src="cid:logo" alt="Logo" class="logo" />
             <h1>TempusUGR</h1>
         </div>
         <h2>Activación de Cuenta</h2>
         <p>Hola,</p>
         <p>Gracias por registrarte en TempusUGR. Por favor, haz clic en el siguiente enlace para activar tu cuenta:</p>
-        <p><a th:href="@{http://localhost:4200/activate?token={token}(token=${token})}" class="activation-link">Activar Cuenta</a></p>
+        <p style="text-align: center;">
+            <a th:href="@{http://localhost:4200/activate?token={token}(token=${token})}" class="activation-link">Activar Cuenta</a>
+        </p>
         <p>Si no puedes hacer clic en el enlace, copia y pega la siguiente URL en tu navegador:</p>
         <p th:text="'http://localhost:4200/activate?token=' + ${token}"></p>
         <p>¡Que tengas un buen día!,</p>

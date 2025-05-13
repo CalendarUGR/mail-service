@@ -10,6 +10,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
+import org.springframework.core.io.ClassPathResource;
 
 import com.calendarugr.mail_service.config.RabbitMQConfig;
 import com.calendarugr.mail_service.config.RabbitMQErrorHandler;
@@ -63,6 +64,7 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message,true, "UTF-8");
             helper.setTo(email);
+            helper.addInline("logo", new ClassPathResource("static/logo.png"));
             helper.setSubject("Activación de cuenta CalendarUGR");
     
             Context context = new Context();
@@ -72,7 +74,8 @@ public class EmailService {
             helper.setText(emailContent, true);
             javaMailSender.send(message);
         }catch(MessagingException e){
-            throw new MessagingException("Error while sending email");
+            System.err.println("Error al enviar el correo: " + e.getMessage());
+            throw new MessagingException("Error while sending email", e);
         }
     }
 
@@ -104,6 +107,7 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message,true, "UTF-8");
             helper.setTo(emails.toArray(new String[0]));
+            helper.addInline("logo", new ClassPathResource("static/logo.png"));
             helper.setSubject("Notificación de creación de evento CalendarUGR");
             Context context = new Context();
 
@@ -129,7 +133,8 @@ public class EmailService {
             javaMailSender.send(message);
 
         }catch(MessagingException e){
-            throw new MessagingException("Error while sending email");
+            System.err.println("Error al enviar el correo: " + e.getMessage());
+            throw new MessagingException("Error while sending email", e);
         }
 
     }
