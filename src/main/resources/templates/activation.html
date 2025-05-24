@@ -98,10 +98,10 @@
         <p>Hola,</p>
         <p>Gracias por registrarte en TempusUGR. Por favor, haz clic en el siguiente enlace para activar tu cuenta:</p>
         <p style="text-align: center;">
-            <a th:href="@{http://localhost:4200/activate?token={token}(token=${token})}" class="activation-link">Activar Cuenta</a>
+            <a th:href="@{https://tempus.ugr.es/activate?token={token}(token=${token})}" class="activation-link">Activar Cuenta</a>
         </p>
         <p>Si no puedes hacer clic en el enlace, copia y pega la siguiente URL en tu navegador:</p>
-        <p th:text="'http://localhost:4200/activate?token=' + ${token}"></p>
+        <p th:text="'https://tempus.ugr.es/activate?token=' + ${token}"></p>
         <p>¡Que tengas un buen día!,</p>
         <p>TempusUGR</p>
         <div class="footer">
