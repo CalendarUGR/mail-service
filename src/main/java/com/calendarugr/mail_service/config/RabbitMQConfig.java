@@ -27,6 +27,11 @@ public class RabbitMQConfig {
     public static final String MAIL_DEAD_LETTER_EXCHANGE = "mail_dead_letter_exchange";
     public static final String MAIL_DEAD_LETTER_ROUTING_KEY = "mail_dead_letter_routing_key";
 
+    @Bean
+    MessageConverter messageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
+
     // Configuration of RabbitMQ listener container factory with retry capabilities
 
     @Bean
@@ -35,16 +40,17 @@ public class RabbitMQConfig {
         factory.setConnectionFactory(connectionFactory);
         factory.setAdviceChain(retryInterceptor()); // Adding retry interceptor
         factory.setDefaultRequeueRejected(false); // Not requeuing messages by default
+        factory.setMessageConverter(messageConverter()); // Setting the message converter
         return factory;
     }
 
     @Bean
     public RetryOperationsInterceptor retryInterceptor() {
         return RetryInterceptorBuilder.stateless()
-            .maxAttempts(3) // Retries up to 3 times
-            .backOffOptions(1000, 2.0, 50000) // initialInterval, multiplier, maxInterval
-            .recoverer(new RejectAndDontRequeueRecoverer()) // Messages will not be requeued after retries
-            .build();
+                .maxAttempts(3) // Retries up to 3 times
+                .backOffOptions(1000, 2.0, 50000) // initialInterval, multiplier, maxInterval
+                .recoverer(new RejectAndDontRequeueRecoverer()) // Messages will not be requeued after retries
+                .build();
     }
 
     // Configuration of the main queues and exchange
@@ -74,12 +80,7 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(notificationQueue).to(exchange).with(MAIL_NOTIFICATION_ROUTING_KEY);
     }
 
-    @Bean
-    MessageConverter messageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }
-
-    // Configuration of Dead Letter Exchange (DLX) and Dead Letter Queue (DLQ) 
+    // Configuration of Dead Letter Exchange (DLX) and Dead Letter Queue (DLQ)
     @Bean
     Queue deadLetterQueue() {
         return new Queue(MAIL_DEAD_LETTER_QUEUE, true);
