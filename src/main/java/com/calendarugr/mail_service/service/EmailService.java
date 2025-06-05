@@ -59,17 +59,26 @@ public class EmailService {
         System.out.println("📩 Recibido mensaje: " + msg);
         String email = msg.get("email");
         String token = msg.get("token");
+        String type = msg.get("type");
 
         try{
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message,true, "UTF-8");
             helper.setTo(email);
             helper.addInline("logo", new ClassPathResource("static/logo.png"));
-            helper.setSubject("Activación de cuenta CalendarUGR");
-    
+
             Context context = new Context();
             context.setVariable("token", token);
-            String emailContent = templateEngine.process("activation", context);
+
+            String emailContent = "";
+
+            if (type.equals("resetPassword")){
+                helper.setSubject("Reseteo de contraseña");
+                emailContent = templateEngine.process("resetPassword", context);
+            }else{
+                helper.setSubject("Activación de cuenta TempusUGR");
+                emailContent = templateEngine.process("activation", context);
+            }
     
             helper.setText(emailContent, true);
             javaMailSender.send(message);
@@ -108,7 +117,7 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(message,true, "UTF-8");
             helper.setTo(emails.toArray(new String[0]));
             helper.addInline("logo", new ClassPathResource("static/logo.png"));
-            helper.setSubject("Notificación de creación de evento CalendarUGR");
+            helper.setSubject("Notificación de creación de evento TempusUGR");
             Context context = new Context();
 
             context.setVariable("gradeName", gradeName);
