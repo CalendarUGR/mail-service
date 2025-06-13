@@ -65,7 +65,6 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message,true, "UTF-8");
             helper.setTo(email);
-            helper.addInline("logo", new ClassPathResource("static/logo.png"));
 
             Context context = new Context();
             context.setVariable("token", token);
@@ -116,7 +115,6 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message,true, "UTF-8");
             helper.setTo(emails.toArray(new String[0]));
-            helper.addInline("logo", new ClassPathResource("static/logo.png"));
             helper.setSubject("Notificación de creación de evento TempusUGR");
             Context context = new Context();
 

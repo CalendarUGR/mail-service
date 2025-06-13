@@ -1,118 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
+    <meta charset="UTF-8">
     <title>Notificación de creación de evento TempusUGR</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style>
-        :root {
-            --primary-color: rgb(184, 45, 42);
-            --secondary-color: rgb(228, 175, 174);
-            --white: #ffffff;
-            --text-color: #333333;
-            --background-color: #f5f5f5;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        .email-container {
-            background-color: var(--white);
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-        }
-
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .logo {
-            width: 80px;
-            height: auto;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            margin: 0;
-            font-size: 1.8rem;
-        }
-
-        p {
-            color: var(--text-color);
-            margin-bottom: 1rem;
-        }
-
-        .footer {
-            margin-top: 20px;
-            text-align: center;
-            color: var(--secondary-color);
-            font-size: 12px;
-        }
-
-        .activation-link {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
 </head>
-
-<body>
-    <div class="email-container">
-        <div class="logo-container">
-            <img src="cid:logo" alt="Logo" class="logo" />
-            <h1>TempusUGR</h1>
-            <h1>Notificación de evento</h1>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333333; background-color: #f5f5f5; line-height: 1.6; margin:0; padding:0;">
+    <div style="background-color: #ffffff; margin: 20px auto; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h1 style="color: #b82d2a; margin: 0; font-size: 1.8rem;">TempusUGR</h1>
+            <h2 style="color: #b82d2a; margin: 0; font-size: 1.3rem;">Notificación de evento</h2>
         </div>
-        <p>Hola,</p>
-        <p>Gracias por confiar en TempusUGR. Se ha creado un nuevo evento, y puede que estés interesado en él:</p>
+        <p style="margin-bottom: 1rem;">Hola,</p>
+        <p style="margin-bottom: 1rem;">Gracias por confiar en TempusUGR. Se ha creado un nuevo evento, y puede que estés interesado en él:</p>
 
-        <p><strong th:text="${title}"></strong> (<strong th:text="${type}"></strong>)</p>
-        <p>Nombre del profesor: <strong th:text="${teacher}"></strong></p>
-        <p>Nombre de la facultad: <strong th:text="${facultyName}"></strong></p>
-        <p>Nombre del grado: <strong th:text="${gradeName}"></strong></p>
-        <p>Nombre de la asignatura: <strong th:text="${subjectName}"></strong></p>
-        <p>Nombre del grupo: <strong th:text="${groupName}"></strong></p>
-        <p>Nombre de la clase: <strong th:text="${gradeName}"></strong></p>
-        <p>Fecha: <strong th:text="${date}"></strong> (<strong th:text="${day}"></strong>)</p>
-        <p>Hora de inicio: <strong th:text="${initHour}"></strong></p>
-        <p>Hora de finalización: <strong th:text="${finishHour}"></strong></p>
-        <p>Aula: <strong th:text="${classroom}"></strong></p>
+        <p style="margin-bottom: 1rem;"><strong th:text="${title}"></strong> (<strong th:text="${type}"></strong>)</p>
+        <p style="margin-bottom: 1rem;">Nombre del profesor: <strong th:text="${teacher}"></strong></p>
+        <p style="margin-bottom: 1rem;">Nombre de la facultad: <strong th:text="${facultyName}"></strong></p>
+        <p style="margin-bottom: 1rem;">Nombre del grado: <strong th:text="${gradeName}"></strong></p>
+        <p style="margin-bottom: 1rem;">Nombre de la asignatura: <strong th:text="${subjectName}"></strong></p>
+        <p style="margin-bottom: 1rem;">Nombre del grupo: <strong th:text="${groupName}"></strong></p>
+        <p style="margin-bottom: 1rem;">Nombre de la clase: <strong th:text="${gradeName}"></strong></p>
+        <p style="margin-bottom: 1rem;">Fecha: <strong th:text="${date}"></strong> (<strong th:text="${day}"></strong>)</p>
+        <p style="margin-bottom: 1rem;">Hora de inicio: <strong th:text="${initHour}"></strong></p>
+        <p style="margin-bottom: 1rem;">Hora de finalización: <strong th:text="${finishHour}"></strong></p>
+        <p style="margin-bottom: 1rem;">Aula: <strong th:text="${classroom}"></strong></p>
 
         <br>
 
-        <p>TempusUGR</p>
-        <div class="footer">
+        <p style="margin-bottom: 1rem;">TempusUGR</p>
+        <div style="margin-top: 20px; text-align: center; color: #e4afae; font-size: 12px;">
             <p>Este es un correo electrónico generado automáticamente, por favor no responda.</p>
         </div>
     </div>
